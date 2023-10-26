@@ -3,14 +3,17 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
 import { Button } from "./ui/button"
-import Dropzone from 'react-dropzone';
+import Dropzone from "react-dropzone";
 import { Cloud, File, Loader2 } from "lucide-react";
 import { Progress } from "./ui/progress";
 import { resolve } from "path";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "./ui/use-toast";
+import { trpc } from "@/app/_trpc/client";
+import { useRouter } from "next/navigation";
 
 const UploadDropzone = () => {
+  const router = useRouter()
 
     const [isUploading, setIsUploading] = useState<boolean>(true)
 
@@ -18,6 +21,14 @@ const UploadDropzone = () => {
     const {toast} = useToast()
 
     const {startUpload} = useUploadThing("pdfUploader")
+
+    const { mutate: startPolling } = trpc.getFile.useMutation({
+      onSuccess: (file) => {
+        router.push(`/dashboard/${file.id}`)
+      },
+      retry: true,
+      retryDelay: 500
+    });
 
     const startStimulatedProgress = () => {
         setUploadProgress(0)
@@ -68,6 +79,8 @@ const UploadDropzone = () => {
 
          clearInterval(ProgressInterval)
          setUploadProgress(100)
+
+         startPolling({ key })
        }}
      >
        {({ getRootProps, getInputProps, acceptedFiles }) => (
@@ -114,6 +127,12 @@ const UploadDropzone = () => {
                    ) : null}
                  </div>
                ) : null}
+
+               <input {...getInputProps()} 
+                type="file" 
+                id="dropzone-file" 
+                className="hidden" 
+                />
              </label>
            </div>
          </div>
