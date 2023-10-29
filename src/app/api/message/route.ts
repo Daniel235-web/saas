@@ -38,6 +38,7 @@ export const POST = async (req: NextRequest) => {
       isUserMessage: true,
       userId,
       fileId,
+      
     },
   });
 
@@ -46,8 +47,8 @@ export const POST = async (req: NextRequest) => {
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
 
-   const pinecone = await getPineconeClient();
-   const pineconeIndex = pinecone.Index("quill1");
+  const pinecone = await getPineconeClient();
+  const pineconeIndex = pinecone.Index("quill1");
 
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
     pineconeIndex,
@@ -118,3 +119,5 @@ export const POST = async (req: NextRequest) => {
 
   return new StreamingTextResponse(stream);
 };
+
+
