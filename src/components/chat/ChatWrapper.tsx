@@ -17,7 +17,7 @@ interface ChatWrapperProps {
 const ChatWrapper = ({ fileId, isSubscribed }: ChatWrapperProps) => {
   const { data, isLoading } = trpc.getFileUploadStatus.useQuery(
     {
-      fileIds,
+      fileId,
     },
     {
       refetchInterval: (data) =>
