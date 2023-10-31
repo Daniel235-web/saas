@@ -19,7 +19,6 @@
       }
     ],
     "paths": {
-       "@tRPC/react-query": ["node_modules/@trpc/react-query"],
        "@/*": ["./src/*"]
     }
   },
