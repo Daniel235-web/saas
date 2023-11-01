@@ -15,8 +15,8 @@ dependencies:
     specifier: ^7.1.7
     version: 7.1.7(react@18.2.0)
   '@pinecone-database/pinecone':
-    specifier: ^1.1.2
-    version: 1.1.2
+    specifier: ^1.1.1
+    version: 1.1.1
   '@prisma/client':
     specifier: 5.3.1
     version: 5.3.1(prisma@5.3.1)
@@ -73,7 +73,7 @@ dependencies:
     version: 2.30.0
   langchain:
     specifier: ^0.0.174
-    version: 0.0.174(@pinecone-database/pinecone@1.1.2)(pdf-parse@1.1.1)
+    version: 0.0.174(@pinecone-database/pinecone@1.1.1)(pdf-parse@1.1.1)
   lucide-react:
     specifier: ^0.288.0
     version: 0.288.0(react@18.2.0)
@@ -554,8 +554,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@pinecone-database/pinecone@1.1.2:
-    resolution: {integrity: sha512-xrvaMWWloTjT70pSxvw+Es2f7qX5lzhtTZBfduagtwGQqK0nFMqS6Jq+1yqzobDaUhqfRfVwRZ95Gm10odqD3Q==}
+  /@pinecone-database/pinecone@1.1.1:
+    resolution: {integrity: sha512-8af+2fAAkkHC1BIe+op8Tk4YLvJYK1qM2ITuwVmFdNVcHG6oHdXlZdR8GGdOLfYSVuLf4aZid7xhjYUSBqux8Q==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@edge-runtime/types': 2.2.6
@@ -3388,7 +3388,7 @@ packages:
       json-buffer: 3.0.1
     dev: true
 
-  /langchain@0.0.174(@pinecone-database/pinecone@1.1.2)(pdf-parse@1.1.1):
+  /langchain@0.0.174(@pinecone-database/pinecone@1.1.1)(pdf-parse@1.1.1):
     resolution: {integrity: sha512-nj2t7w/eKfbYGctZrBqOWQpPoeuIRVOSaiITufZ2Q8j+bX2BiZpPQso85n+7UtR8iKS1RwyivkJ6WHbYcdMfDw==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -3680,7 +3680,7 @@ packages:
         optional: true
     dependencies:
       '@anthropic-ai/sdk': 0.6.8
-      '@pinecone-database/pinecone': 1.1.2
+      '@pinecone-database/pinecone': 1.1.1
       ansi-styles: 5.2.0
       binary-extensions: 2.2.0
       camelcase: 6.3.0
