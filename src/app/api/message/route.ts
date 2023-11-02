@@ -51,7 +51,7 @@ export const POST = async (req: NextRequest) => {
   const pineconeIndex = pinecone.Index("quill1");
 
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
-    pineconeIndex,
+    pineconeIndex: pineconeIndex,
     namespace: file.id,
   });
 
