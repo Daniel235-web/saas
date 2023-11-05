@@ -50,11 +50,11 @@ export const POST = async (req: NextRequest) => {
   const pinecone = await getPineconeClient();
   const pineconeIndex = pinecone.Index("quill1");
 
-  const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
-    pineconeIndex: pineconeIndex,
-    namespace: file.id,
-  });
-
+ const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
+   // @ts-ignore
+   pineconeIndex,
+   namespace: file.id,
+ });
   const results = await vectorStore.similaritySearch(message, 4);
 
   const prevMessages = await db.message.findMany({
